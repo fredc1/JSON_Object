@@ -1,287 +1,215 @@
 {
-	"concussion history": {
-		"title": "Concussion History",
-		"description": "Please answer the following questions about your injury and leave any necessary comments.",
-		"Questions": {
-			"q1": {
-				"question": "How did you get your injury?",
-				"answers": {
-					"a1": {
-						"type": "checkbox",
-						"text": "Fell",
-						"suboptions": {}
-					},
-					"a2": {
-						"type": "checkbox",
-						"text": "Hit head on stationary ojbect:",
-						"suboptions": {
-							"s1": {
-								"text": "Frozen ground (e.g. ice rink, ski/snowboarding trail, etc.)",
-
-								"type": "checkbox"
-							},
-							"s2": {
-								"text": "Grass",
-								"type": "checkbox"
-							},
-							"s3": {
-								"text": "Wall",
-								"type": "checkbox"
-							},
-							"s4": {
-								"text": "Car door",
-								"type": "checkbox"
-							},
-							"s5": {
-								"text": "Concrete",
-								"type": "checkbox"
-							},
-							"s6": {
-								"text": "Furniture",
-								"type": "checkbox"
-							},
-							"s7": {
-								"text": "Synthetic turf",
-								"type": "checkbox"
-							},
-							"s8": {
-								"text": "Pole",
-								"type": "checkbox"
-							},
-							"s9": {
-								"text": "Other:",
-								"type": "checkboxtext"
-							}
-						}
-					},
-					"a3": {
-						"type": "checkbox",
-						"text": "Hit on head with moving object:",
-						"suboptions": {
-							"s1": {
-								"text": "Baseball/softball",
-								"type": "checkbox"
-							},
-							"s2": {
-								"text": "Soccer ball",
-								"type": "checkbox"
-							},
-							"s3": {
-								"text": "Hockey puck",
-								"type": "checkbox"
-							},
-							"s4": {
-								"text": "Basketball",
-								"type": "checkbox"
-							},
-							"s5": {
-								"text": "Lacrosse ball",
-								"type": "checkbox"
-							},
-							"s6": {
-								"text": "Sports equipment (e.g. hocky stick, golf club, etc.)",
-
-								"type": "checkbox"
-							},
-							"s7": {
-								"text": "Other:",
-								"type": "checkboxtext"
-							}
-						}
-					},
-					"a4": {
-						"type": "checkbox",
-						"text": "Collision:",
-						"suboptions": {
-							"s1": {
-								"text": "Head to head",
-								"type": "checkbox"
-							},
-							"s2": {
-								"text": "Knee to head",
-								"type": "checkbox"
-							},
-							"s3": {
-								"text": "Fist to head",
-								"type": "checkbox"
-							},
-							"s4": {
-								"text": "Elbow to head",
-								"type": "checkbox"
-							},
-							"s5": {
-								"text": "Foot to head",
-								"type": "checkbox"
-							},
-							"s6": {
-								"text": "Other:",
-								"type": "checkboxtext"
-							}
-						}
-					}
-				},
-				"q2": {
-					"question": "Location of impact on head:",
-					"answers": {
-						"a1": {
-							"type": "checkbox",
-							"text": "front",
-							"suboptions": {}
-						},
-						"a2": {
-							"type": "checkbox",
-							"text": "back",
-							"suboptions": {}
-						},
-						"a3": {
-							"type": "checkbox",
-							"text": "left side",
-							"suboptions": {}
-						},
-						"a4": {
-							"type": "checkbox",
-							"text": "right side",
-							"suboptions": {}
-						},
-						"a5": {
-							"type": "checkbox",
-							"text": "top",
-							"suboptions": {}
-						},
-						"a6": {
-							"type": "checkbox",
-							"text": "unknown or N/A",
-							"suboptions": {}
-						}
-					}
-				},
-				"q3": {
-					"question": "Were you wearing a helmet when you were injured?",
-					"answers": {
-						"a1": {
-							"type": "checkbox",
-							"text": "yes",
-							"suboptions": {}
-						},
-						"a2": {
-							"type": "checkbox",
-							"text": "no",
-							"suboptions": {}
-						}
-					}
-				},
-				"q4": {
-					"question": "Were you wearing any other form of headgear when you were injured?",
-					"answers": {
-						"a1": {
-							"type": "checkbox",
-							"text": "yes",
-							"suboptions": {
-								"s1": {
-									"text": "If yes, please specify:",
-									"type": "text"
-								}
-							}
-						},
-						"a2": {
-							"type": "checkbox",
-							"text": "no",
-							"suboptions": {}
-						}
-					}
-				},
-				"q5": {
-					"question": "Did you lose consciousness?",
-					"answers": {
-						"a1": {
-							"type": "checkbox",
-							"text": "yes",
-							"suboptions": {
-								"s1": {
-									"text": "If yes, for how long?",
-									"type": "text"
-								}
-							}
-						},
-						"a2": {
-							"type": "checkbox",
-							"text": "no",
-							"suboptions": {}
-						}
-					}
-				},
-				"q6": {
-					"question": "Do you have full recollection of the events?",
-					"answers": {
-						"a1": {
-							"type": "checkbox",
-							"text": "yes",
-							"suboptions": {}
-						},
-						"a2": {
-							"type": "checkbox",
-							"text": "no",
-							"suboptions": {}
-						}
-					}
-				},
-				"q7": {
-					"question": "Do you have any amnesia?",
-					"answers": {
-						"a1": {
-							"type": "checkbox",
-							"text": "yes",
-							"suboptions": {
-								"text": "If yes, for how long?",
-								"type": "text"
-							}
-						}
-					},
-					"a2": {
-						"type": "checkbox",
-						"text": "no",
-						"suboptions": {}
-					}
-
-				},
-				"q8": {
-					"question": "Have you ever had any prior concussions?",
-					"answers": {
-						"a1": {
-							"type": "checkbox",
-							"text": "yes",
-							"suboptions": {
-								"text": "If yes, please list dates and describe the details, setting sin which it happened, and how long it took for you to recover?",
-								"type": "text"
-							}
-						}
-					},
-					"a2": {
-						"type": "checkbox",
-						"text": "no",
-						"suboptions": {}
-					}
-
-				},
-				"q9": {
-					"question": "Have you ever had any symptoms that may have resulted from a head injury?",
-					"answers": {
-						"a1": {
-							"type": "checkbox",
-							"text": "yes",
-							"suboptions": {
-								"text": "If yes, please list the dates and describe the details and setting in which it happened:",
-								"type": "text"
-							}
-						}
-					},
-					"a2": {
-						"type": "checkbox",
-						"text": "no",
-						"suboptions": {}
-					}
-				}
-			}
-		}
-	}
+    "concussion history": {
+        "title": "Concussion History"
+        , "description": "Please answer the following questions about your injury and leave any necessary comments."
+        , "Questions": [{
+            "question": "How did you get your injury?"
+            , "answers": [{
+                "type": "checkbox"
+                , "text": "Fell"
+                , "suboptions": []
+			}, {
+                "type": "checkbox"
+                , "text": "Hit head on stationary ojbect:"
+                , "suboptions": [{
+                    "text": "Frozen ground (e.g. ice rink, ski/snowboarding trail, etc.)"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Grass"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Wall"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Car door"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Concrete"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Furniture"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Synthetic turf"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Pole"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Other:"
+                    , "type": "checkboxtext"
+				}]
+			}, {
+                "type": "checkbox"
+                , "text": "Hit on head with moving object:"
+                , "suboptions": [{
+                    "text": "Baseball/softball"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Soccer ball"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Hockey puck"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Basketball"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Lacrosse ball"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Sports equipment (e.g. hocky stick, golf club, etc.)"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Other:"
+                    , "type": "checkboxtext"
+				}]
+			}, {
+                "type": "checkbox"
+                , "text": "Collision:"
+                , "suboptions": [{
+                    "text": "Head to head"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Knee to head"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Fist to head"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Elbow to head"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Foot to head"
+                    , "type": "checkbox"
+				}, {
+                    "text": "Other:"
+                    , "type": "checkboxtext"
+				}]
+			}]
+		}, {
+            "question": "Location of impact on head:"
+            , "answers": [{
+                "type": "checkbox"
+                , "text": "front"
+                , "suboptions": []
+			}, {
+                "type": "checkbox"
+                , "text": "back"
+                , "suboptions": []
+			}, {
+                "type": "checkbox"
+                , "text": "left side"
+                , "suboptions": []
+			}, {
+                "type": "checkbox"
+                , "text": "right side"
+                , "suboptions": []
+			}, {
+                "type": "checkbox"
+                , "text": "top"
+                , "suboptions": []
+			}, {
+                "type": "checkbox"
+                , "text": "unknown or N/A"
+                , "suboptions": []
+			}]
+		}, {
+            "question": "Were you wearing a helmet when you were injured?"
+            , "answers": [{
+                "type": "checkbox"
+                , "text": "yes"
+                , "suboptions": []
+			}, {
+                "type": "checkbox"
+                , "text": "no"
+                , "suboptions": []
+			}]
+		}, {
+            "question": "Were you wearing any other form of headgear when you were injured?"
+            , "answers": [{
+                "type": "checkbox"
+                , "text": "yes"
+                , "suboptions": {
+                    "s1": {
+                        "text": "If yes, please specify:"
+                        , "type": "text"
+                    }
+                }
+			}, {
+                "type": "checkbox"
+                , "text": "no"
+                , "suboptions": []
+			}]
+		}, {
+            "question": "Did you lose consciousness?"
+            , "answers": [{
+                "type": "checkbox"
+                , "text": "yes"
+                , "suboptions": {
+                    "s1": {
+                        "text": "If yes, for how long?"
+                        , "type": "text"
+                    }
+                }
+			}, {
+                "type": "checkbox"
+                , "text": "no"
+                , "suboptions": []
+			}]
+		}, {
+            "question": "Do you have full recollection of the events?"
+            , "answers": [{
+                "type": "checkbox"
+                , "text": "yes"
+                , "suboptions": []
+			}, {
+                "type": "checkbox"
+                , "text": "no"
+                , "suboptions": []
+			}]
+		}, {
+            "question": "Do you have any amnesia?"
+            , "answers": [{
+                "type": "checkbox"
+                , "text": "yes"
+                , "suboptions": {
+                    "text": "If yes, for how long?"
+                    , "type": "text"
+                }
+			}, {
+                "type": "checkbox"
+                , "text": "no"
+                , "suboptions": []
+			}]
+		}, {
+            "question": "Have you ever had any prior concussions?"
+            , "answers": [{
+                "type": "checkbox"
+                , "text": "yes"
+                , "suboptions": {
+                    "text": "If yes, please list dates and describe the details, setting sin which it happened, and how long it took for you to recover?"
+                    , "type": "text"
+                }
+			}, {
+                "type": "checkbox"
+                , "text": "no"
+                , "suboptions": []
+			}]
+		}, {
+            "question": "Have you ever had any symptoms that may have resulted from a head injury?"
+            , "answers": [{
+                "type": "checkbox"
+                , "text": "yes"
+                , "suboptions": {
+                    "text": "If yes, please list the dates and describe the details and setting in which it happened:"
+                    , "type": "text"
+                }
+			}, {
+                "type": "checkbox"
+                , "text": "no"
+                , "suboptions": []
+			}]
+		}]
+    }
 }
