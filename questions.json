@@ -10,7 +10,7 @@
                 , "suboptions": []
 			}, {
                 "type": "checkbox"
-                , "text": "Hit head on stationary ojbect:"
+                , "text": "Hit head on stationary object:"
                 , "suboptions": [{
                     "text": "Frozen ground (e.g. ice rink, ski/snowboarding trail, etc.)"
                     , "type": "checkbox"
