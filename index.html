@@ -13,7 +13,7 @@
         }
         
         .suboption {
-            margin-left: 80px;
+            margin-left: 60px;
         }
     </style>
 </head>
@@ -107,8 +107,9 @@
                     }
                     containerdiv.appendChild(subcontainerdiv);
                 }
-                container.appendChild(containerdiv);
+                containerdiv.appendChild(document.createElement("br"));
             }
+            container.appendChild(containerdiv);
         }
         for (i = 0; i < JSONsrc["concussion history"]["Questions"].length; i++) {
             for (j = 0; j < JSONsrc["concussion history"]["Questions"][i].answers.length; j++) {
