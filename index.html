@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Example JSON parserino</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style type="text/css">
+        .option {
+            margin-left: 40px;
+        }
+        
+        .suboption {
+            margin-left: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"> </div>
+    <input type="submit" onclick="myFunction()">
+    <script>
+        function myFunction() {
+            var ancestor = document.getElementById('container')
+                , descendents = ancestor.getElementsByTagName('*');
+            var i, e;
+            for (i = 0; i < descendents.length; ++i) {
+                e = descendents[i];
+                if (e.tagName == "INPUT") {
+                    localStorage.setItem(e.id, e.value);
+                    console.log(e.id, e.value);
+                }
+            }
+        }
+    </script>
+    <script>
+        var JSONsrc = JSON.parse('{	"concussion history": {		"title": "Concussion History",		"description": "Please answer the following questions about your injury and leave any necessary comments.",		"Questions": [{			"question": "How did you get your injury?",			"answers": [{				"type": "checkbox",				"text": "Fell",				"suboptions": []			}, {				"type": "checkbox",				"text": "Hit head on stationary object:",				"suboptions": [{					"text": "Frozen ground (e.g. ice rink, ski/snowboarding trail, etc.)",					"type": "checkbox"				}, {					"text": "Grass",					"type": "checkbox"				}, {					"text": "Wall",					"type": "checkbox"				}, {					"text": "Car door",					"type": "checkbox"				}, {					"text": "Concrete",					"type": "checkbox"				}, {					"text": "Furniture",					"type": "checkbox"				}, {					"text": "Synthetic turf",					"type": "checkbox"				}, {					"text": "Pole",					"type": "checkbox"				}, {					"text": "Other:",					"type": "checkboxtext"				}]			}, {				"type": "checkbox",				"text": "Hit on head with moving object:",				"suboptions": [{					"text": "Baseball/softball",					"type": "checkbox"				}, {					"text": "Soccer ball",					"type": "checkbox"				}, {					"text": "Hockey puck",					"type": "checkbox"				}, {					"text": "Basketball",					"type": "checkbox"				}, {					"text": "Lacrosse ball",					"type": "checkbox"				}, {					"text": "Sports equipment (e.g. hockey stick, golf club, etc.)",					"type": "checkbox"				}, {					"text": "Other:",					"type": "checkboxtext"				}]			}, {				"type": "checkbox",				"text": "Collision:",				"suboptions": [{					"text": "Head to head",					"type": "checkbox"				}, {					"text": "Knee to head",					"type": "checkbox"				}, {					"text": "Fist to head",					"type": "checkbox"				}, {					"text": "Elbow to head",					"type": "checkbox"				}, {					"text": "Foot to head",					"type": "checkbox"				}, {					"text": "Other:",					"type": "checkboxtext"				}]			}]		}, {			"question": "Location of impact on head:",			"answers": [{				"type": "checkbox",				"text": "front",				"suboptions": []			}, {				"type": "checkbox",				"text": "back",				"suboptions": []			}, {				"type": "checkbox",				"text": "left side",				"suboptions": []			}, {				"type": "checkbox",				"text": "right side",				"suboptions": []			}, {				"type": "checkbox",				"text": "top",				"suboptions": []			}, {				"type": "checkbox",				"text": "unknown or N/A",				"suboptions": []			}]		}, {			"question": "Were you wearing a helmet when you were injured?",			"answers": [{				"type": "checkbox",				"text": "yes",				"suboptions": []			}, {				"type": "checkbox",				"text": "no",				"suboptions": []			}]		}, {			"question": "Were you wearing any other form of headgear when you were injured?",			"answers": [{				"type": "checkbox",				"text": "yes",				"suboptions": [{						"text": "If yes, please specify:",						"type": "text"					}				]			}, {				"type": "checkbox",				"text": "no",				"suboptions": []			}]		}, {			"question": "Did you lose consciousness?",			"answers": [{				"type": "checkbox",				"text": "yes",				"suboptions": [{						"text": "If yes, for how long?",						"type": "text"					}				]			}, {				"type": "checkbox",				"text": "no",				"suboptions": []			}]		}, {			"question": "Do you have full recollection of the events?",			"answers": [{				"type": "checkbox",				"text": "yes",				"suboptions": []			}, {				"type": "checkbox",				"text": "no",				"suboptions": []			}]		}, {			"question": "Do you have any amnesia?",			"answers": [{				"type": "checkbox",				"text": "yes",				"suboptions": [{					"text": "If yes, for how long?",					"type": "text"				}]			}, {				"type": "checkbox",				"text": "no",				"suboptions": []			}]		}, {			"question": "Have you ever had any prior concussions?",			"answers": [{				"type": "checkbox",				"text": "yes",				"suboptions": {					"text": "If yes, please list dates and describe the details, setting sin which it happened, and how long it took for you to recover?",					"type": "text"				}			}, {				"type": "checkbox",				"text": "no",				"suboptions": []			}]		}, {			"question": "Have you ever had any symptoms that may have resulted from a head injury?",			"answers": [{				"type": "checkbox",				"text": "yes",				"suboptions": [{					"text": "If yes, please list the dates and describe the details and setting in which it happened:",					"type": "text"				}]			}, {				"type": "checkbox",				"text": "no",				"suboptions": []			}]		}]	}}');
+
+        function addLineBreak() {
+            linebreak = document.createElement("br");
+            container.appendChild(linebreak);
+        }
+        container.appendChild(document.createTextNode(JSONsrc["concussion history"]["description"]));
+        addLineBreak();
+        addLineBreak();
+        for (i = 0; i < JSONsrc["concussion history"]["Questions"].length; i++) {
+            var question = document.createElement('string');
+            question.type = "p";
+            question.innerHTML = JSONsrc["concussion history"]["Questions"][i].question;
+            container.appendChild(question);
+            addLineBreak();
+            for (j = 0; j < JSONsrc["concussion history"]["Questions"][i].answers.length; j++) {
+                if (JSONsrc["concussion history"]["Questions"][i].answers[j].type.indexOf("checkbox") != -1) {
+                    var checkbox = document.createElement('input');
+                    checkbox.type = "checkbox";
+                    checkbox.className = "option";
+                    checkbox.id = "q" + i + "a" + j;
+                    var label = document.createElement('label')
+                    label.htmlFor = "q" + i + "a" + j;
+                    label.appendChild(document.createTextNode(JSONsrc["concussion history"]["Questions"][i].answers[j].text));
+                    container.appendChild(checkbox);
+                    container.appendChild(label);
+                    addLineBreak();
+                }
+                for (k = 0; k < JSONsrc["concussion history"]["Questions"][i].answers[j].suboptions.length; k++) {
+                    var checkbox = document.createElement('input');
+                    var label = document.createElement('label')
+                    var textbox = document.createElement('input');
+                    label.htmlFor = "q" + i + "a" + j + "s" + k + "chk";
+                    label.appendChild(document.createTextNode(JSONsrc["concussion history"]["Questions"][i].answers[j].suboptions[k].text));
+                    if (JSONsrc["concussion history"]["Questions"][i].answers[j].suboptions[k].type.indexOf("checkbox") != -1) {
+                        checkbox.type = "checkbox";
+                        checkbox.className = "suboption";
+                        checkbox.id = "q" + i + "a" + j + "s" + k + "chk";
+                    }
+                    if (JSONsrc["concussion history"]["Questions"][i].answers[j].suboptions[k].type.indexOf("text") != -1) {
+                        textbox.type = "text";
+                        textbox.className = "suboption";
+                        textbox.id = "q" + i + "a" + j + "s" + k + "txt";
+                    }
+                    //Check if the input is set in the previous conditions; if so, put in the input option
+                    if (checkbox.className == "suboption") {
+                        container.appendChild(checkbox);
+                    }
+                    container.appendChild(label);
+                    if (textbox.className == "suboption") {
+                        container.appendChild(textbox);
+                    }
+                    addLineBreak();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
