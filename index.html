@@ -42,15 +42,16 @@
             linebreak = document.createElement("br");
             container.appendChild(linebreak);
         }
-        container.appendChild(document.createTextNode(JSONsrc["concussion history"]["description"]));
-        addLineBreak();
-        addLineBreak();
+        var title = document.createElement('h1');
+        var description = document.createElement('h2');
+        title.appendChild(document.createTextNode(JSONsrc["concussion history"]["title"]));
+        description.appendChild(document.createTextNode(JSONsrc["concussion history"]["description"]));
+        container.appendChild(title);
+        container.appendChild(description);
         for (i = 0; i < JSONsrc["concussion history"]["Questions"].length; i++) {
-            var question = document.createElement('string');
-            question.type = "p";
+            var question = document.createElement('h3');
             question.innerHTML = JSONsrc["concussion history"]["Questions"][i].question;
             container.appendChild(question);
-            addLineBreak();
             for (j = 0; j < JSONsrc["concussion history"]["Questions"][i].answers.length; j++) {
                 if (JSONsrc["concussion history"]["Questions"][i].answers[j].type.indexOf("checkbox") != -1) {
                     var checkbox = document.createElement('input');
@@ -65,30 +66,30 @@
                     addLineBreak();
                 }
                 for (k = 0; k < JSONsrc["concussion history"]["Questions"][i].answers[j].suboptions.length; k++) {
+                    var subdiv = document.createElement('div');
                     var checkbox = document.createElement('input');
                     var label = document.createElement('label')
                     var textbox = document.createElement('input');
+                    subdiv.className = "suboption";
                     label.htmlFor = "q" + i + "a" + j + "s" + k + "chk";
                     label.appendChild(document.createTextNode(JSONsrc["concussion history"]["Questions"][i].answers[j].suboptions[k].text));
                     if (JSONsrc["concussion history"]["Questions"][i].answers[j].suboptions[k].type.indexOf("checkbox") != -1) {
                         checkbox.type = "checkbox";
-                        checkbox.className = "suboption";
                         checkbox.id = "q" + i + "a" + j + "s" + k + "chk";
                     }
                     if (JSONsrc["concussion history"]["Questions"][i].answers[j].suboptions[k].type.indexOf("text") != -1) {
                         textbox.type = "text";
-                        textbox.className = "suboption";
                         textbox.id = "q" + i + "a" + j + "s" + k + "txt";
                     }
                     //Check if the input is set in the previous conditions; if so, put in the input option
-                    if (checkbox.className == "suboption") {
-                        container.appendChild(checkbox);
+                    if (checkbox.id != "") {
+                        subdiv.appendChild(checkbox);
                     }
-                    container.appendChild(label);
-                    if (textbox.className == "suboption") {
-                        container.appendChild(textbox);
+                    subdiv.appendChild(label);
+                    if (textbox.id != "") {
+                        subdiv.appendChild(textbox);
                     }
-                    addLineBreak();
+                    container.appendChild(subdiv);
                 }
             }
         }
