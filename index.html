@@ -144,8 +144,9 @@
                 }
             });
             $('input:radio').change(function () {
-                if ($("#" + (this).id.substring(0, (this).id.length - 3) + "form").text().length > 0) {
-                    $("#" + (this).id.substring(0, (this).id.length - 3) + "form").toggle();
+                console.log(this.id);
+                if ($("#" + (this).id.substring(0, (this).id.length - 4) + "0form").text().length > 0) {
+                    $("#" + (this).id.substring(0, (this).id.length - 4) + "0form").toggle();
                 }
             });
         });
