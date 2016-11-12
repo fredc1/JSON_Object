@@ -139,14 +139,19 @@
         }
         $(document).ready(function () {
             $('input:checkbox').change(function () {
-                if ($("#" + (this).id.substring(0, (this).id.length - 3) + "form").text().length > 0) {
-                    $("#" + (this).id.substring(0, (this).id.length - 3) + "form").toggle();
+                if ($(this).is(":checked")) {
+                    document.getElementById((this).id.substring(0, (this).id.length - 3) + "form").style.display = "inline";
+                }
+                else {
+                    document.getElementById((this).id.substring(0, (this).id.length - 3) + "form").style.display = "none";
                 }
             });
             $('input:radio').change(function () {
-                console.log(this.id);
-                if ($("#" + (this).id.substring(0, (this).id.length - 4) + "0form").text().length > 0) {
-                    $("#" + (this).id.substring(0, (this).id.length - 4) + "0form").toggle();
+                if ($("#" + (this).id.substring(0, (this).id.length - 4) + "0inp").is(":checked")) {
+                    document.getElementById((this).id.substring(0, (this).id.length - 4) + "0form").style.display = "inline";
+                }
+                else {
+                    document.getElementById((this).id.substring(0, (this).id.length - 4) + "0form").style.display = "none";
                 }
             });
         });
