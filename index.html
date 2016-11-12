@@ -19,16 +19,46 @@
 </head>
 
 <body>
+    <button id="restoreFromMemory">Restore from local storage</button>
+    <button id="clearLocalStorage">Clear local storage</button>
+    <button id="createSummarySheet">Create summary sheet</button>
     <div id="container"> </div>
-    <input type="submit" onclick="myFunction()">
-    <button onclick="restoreFromMemory()">Restore from local storage</button>
-    <button onclick="clearLocalStorage()">Clear local storage</button>
+    <input type="submit" id="submit">
     <script>
+        document.getElementById("restoreFromMemory").addEventListener("click", function () {
+            restoreFromMemory();
+        });
+        document.getElementById("clearLocalStorage").addEventListener("click", function () {
+            clearLocalStorage();
+        });
+        document.getElementById("createSummarySheet").addEventListener("click", function () {
+            createSummarySheet();
+        });
+        document.getElementById("submit").addEventListener("click", function () {
+            storeToLocalStorage();
+        });
+
         function clearLocalStorage() {
-            localStorage.clear;
+            localStorage.clear();
         }
 
-        function myFunction() {
+        function createSummarySheet() {
+            document.getElementById("createSummarySheet").parentNode.removeChild(document.getElementById("createSummarySheet"));
+            storeToLocalStorage();
+            document.getElementById("title").innerHTML = document.getElementById("title").innerHTML + " Summary";
+            for (var i = 0, len = localStorage.length; i < len; ++i) {
+                if (document.getElementById(localStorage.key(i)).type == "text") {
+                    document.getElementById(localStorage.key(i)).value = localStorage.getItem(localStorage.key(i));
+                    document.getElementById(localStorage.key(i)).disabled = "true";
+                }
+                if (document.getElementById(localStorage.key(i)).type == "checkbox" || document.getElementById(localStorage.key(i)).type == "radio") {
+                    document.getElementById(localStorage.key(i)).checked = (localStorage.getItem(localStorage.key(i)) == "true");
+                    document.getElementById(localStorage.key(i)).disabled = "true";
+                }
+            }
+        }
+
+        function storeToLocalStorage() {
             var ancestor = document.getElementById('container')
                 , descendents = ancestor.getElementsByTagName('*');
             var i, e;
@@ -48,7 +78,6 @@
     <script>
         function restoreFromMemory() {
             for (var i = 0, len = localStorage.length; i < len; ++i) {
-                console.log(localStorage.key(i) + ", " + localStorage.getItem(localStorage.key(i)));
                 if (document.getElementById(localStorage.key(i)).type == "text") {
                     document.getElementById(localStorage.key(i)).value = localStorage.getItem(localStorage.key(i));
                 }
@@ -64,6 +93,7 @@
             var title = document.createElement('h1');
             var description = document.createElement('h2');
             title.appendChild(document.createTextNode(JSONsrc["concussion history"]["title"]));
+            title.id = "title";
             description.appendChild(document.createTextNode(JSONsrc["concussion history"]["description"]));
             container.appendChild(title);
             container.appendChild(description);
@@ -77,16 +107,16 @@
                     var input = document.createElement('input');
                     var label = document.createElement('label')
                     var textbox = document.createElement('input');
-                    label.htmlFor = "q" + i + "a" + j + "chk";
+                    label.htmlFor = "q" + i + "a" + j + "inp";
                     label.appendChild(document.createTextNode(JSONsrc["concussion history"]["Questions"][i].answers[j].text));
                     if (JSONsrc["concussion history"]["Questions"][i].answers[j].type.indexOf("checkbox") != -1) {
                         input.type = "checkbox";
-                        input.id = "q" + i + "a" + j + "chk";
+                        input.id = "q" + i + "a" + j + "inp";
                     }
                     if (JSONsrc["concussion history"]["Questions"][i].answers[j].type.indexOf("radio") != -1) {
                         input.type = "radio";
                         input.name = "opt";
-                        input.id = "q" + i + "a" + j + "rad";
+                        input.id = "q" + i + "a" + j + "inp";
                     }
                     if (JSONsrc["concussion history"]["Questions"][i].answers[j].type.indexOf("text") != -1) {
                         textbox.type = "text";
@@ -106,16 +136,16 @@
                         var label = document.createElement('label')
                         var textbox = document.createElement('input');
                         subcontainerdiv.className = "suboption";
-                        label.htmlFor = "q" + i + "a" + j + "s" + k + "chk";
+                        label.htmlFor = "q" + i + "a" + j + "s" + k + "inp";
                         label.appendChild(document.createTextNode(JSONsrc["concussion history"]["Questions"][i].answers[j].suboptions[k].text));
                         if (JSONsrc["concussion history"]["Questions"][i].answers[j].suboptions[k].type.indexOf("checkbox") != -1) {
                             input.type = "checkbox";
-                            input.id = "q" + i + "a" + j + "s" + k + "chk";
+                            input.id = "q" + i + "a" + j + "s" + k + "inp";
                         }
                         if (JSONsrc["concussion history"]["Questions"][i].answers[j].suboptions[k].type.indexOf("radio") != -1) {
                             input.type = "radio";
                             input.name = "sub";
-                            input.id = "q" + i + "a" + j + "s" + k + "radio";
+                            input.id = "q" + i + "a" + j + "s" + k + "inp";
                         }
                         if (JSONsrc["concussion history"]["Questions"][i].answers[j].suboptions[k].type.indexOf("text") != -1) {
                             textbox.type = "text";
