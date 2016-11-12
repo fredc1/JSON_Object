@@ -44,7 +44,6 @@
 
         function createSummarySheet() {
             document.getElementById("createSummarySheet").parentNode.removeChild(document.getElementById("createSummarySheet"));
-            storeToLocalStorage();
             document.getElementById("title").innerHTML = document.getElementById("title").innerHTML + " Summary";
             for (var i = 0, len = localStorage.length; i < len; ++i) {
                 if (document.getElementById(localStorage.key(i)).type == "text") {
