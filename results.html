@@ -23,30 +23,20 @@
 </head>
 
 <body>
-    <button id="viewSavedAnswers">View Saved Answers</button>
     <div id="container"> </div>
-    <input type="submit" id="submit">
     <script>
-        document.getElementById("viewSavedAnswers").addEventListener("click", function () {
-            window.location.href = 'results.html';
-        });
-        document.getElementById("submit").addEventListener("click", function () {
-            storeToLocalStorage();
-        });
-
-        function storeToLocalStorage() {
-            var ancestor = document.getElementById('container')
-                , descendents = ancestor.getElementsByTagName('INPUT');
-            var i, e;
-            for (i = 0; i < descendents.length; ++i) {
-                e = descendents[i];
-                console.log(e.id.substring(0, e.id.indexOf("s")) + "form");
-                if ((e.id.indexOf("s") != -1 && document.getElementById(e.id.substring(0, e.id.indexOf("s")) + "form").display != "none") || e.id.indexOf("s") == -1)
-                    if (e.type == "text") {
-                        localStorage.setItem(e.id, e.value);
+        function restoreFromMemory() {
+            for (var i = 0, len = localStorage.length; i < len; ++i) {
+                if (document.getElementById(localStorage.key(i)).type == "text") {
+                    document.getElementById(localStorage.key(i)).value = localStorage.getItem(localStorage.key(i));
+                }
+                if (document.getElementById(localStorage.key(i)).type == "checkbox" || document.getElementById(localStorage.key(i)).type == "radio") {
+                    document.getElementById(localStorage.key(i)).checked = (localStorage.getItem(localStorage.key(i)) == "true");
+                    if ((localStorage.getItem(localStorage.key(i)) == "true") && localStorage.key(i).indexOf("s") == -1) {
+                        if ($("#" + localStorage.key(i).substring(0, localStorage.key(i).length - 3) + "form").text().length > 0) {
+                            $("#" + localStorage.key(i).substring(0, localStorage.key(i).length - 3) + "form").toggle();
+                        }
                     }
-                if (e.type == "checkbox" || e.type == "radio") {
-                    localStorage.setItem(e.id, e.checked);
                 }
             }
         }
@@ -133,21 +123,17 @@
                 container.appendChild(containerdiv);
             }
         }
-        generateForm();
-        if (localStorage.length == 0) {
-            storeToLocalStorage();
-        }
         $(document).ready(function () {
-            $('input:checkbox').change(function () {
-                if ($("#" + (this).id.substring(0, (this).id.length - 3) + "form").text().length > 0) {
-                    $("#" + (this).id.substring(0, (this).id.length - 3) + "form").toggle();
-                }
-            });
-            $('input:radio').change(function () {
-                if ($("#" + (this).id.substring(0, (this).id.length - 3) + "form").text().length > 0) {
-                    $("#" + (this).id.substring(0, (this).id.length - 3) + "form").toggle();
-                }
-            });
+            generateForm();
+            document.getElementById("title").innerHTML = document.getElementById("title").innerHTML + " Summary";
+            restoreFromMemory();
+            var ancestor = document.getElementById('container')
+                , descendents = ancestor.getElementsByTagName('INPUT');
+            var i, e;
+            for (i = 0; i < descendents.length; ++i) {
+                e = descendents[i];
+                document.getElementById(localStorage.key(i)).disabled = "true";
+            }
         });
     </script>
 </body>
