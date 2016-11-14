@@ -1,0 +1,11 @@
+ .option {
+            margin-left: 40px;
+        }
+        
+        .suboption {
+            margin-left: 60px;
+        }
+        
+        .subform {
+            display: none;
+        }
